@@ -121,3 +121,10 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+
+#APPEND_SLASH
+APPEND_SLASH = True
+
+# Public Variables
+SITE_TITLE = "TiTle V1.0"
+LOGIN_URL = "/report/register/"
