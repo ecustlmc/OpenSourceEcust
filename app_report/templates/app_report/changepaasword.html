@@ -1,0 +1,42 @@
+{% extends 'app_report/base.html' %}
+{% block page %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-offset-4">
+                <div class="form-group">
+                        <form role="form" method="post">
+                            <fieldset>
+                                {% csrf_token %}
+                                {% for field in form %}
+                                    {% if field.errors %}
+                                        <div class="form-group has-error">
+                                            {{ field.label_tag }}
+                                            {{ field }}
+                                            {% if field.help_text %}
+                                                <p class="help-block">{{ field.help_text|safe }}</p>
+                                            {% endif %}
+                                            {% for error in field.errors %}
+                                                <p class="help-block" style="color: red">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        <div class="form-group">
+                                            {{ field.label_tag }}
+                                            {{ field }}
+                                            {% if field.help_text %}
+                                                <p class="help-block">{{ field.help_text|safe }}</p>
+                                            {% endif %}
+                                            {% for error in field.errors %}
+                                                <p class="help-block" style="color: red">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                                <button type="submit" class="btn btn-lg btn-success btn-block">确认修改</button>
+                            </fieldset>
+                        </form>
+    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

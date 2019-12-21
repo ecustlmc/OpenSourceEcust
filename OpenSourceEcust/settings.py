@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -127,4 +128,8 @@ APPEND_SLASH = True
 
 # Public Variables
 SITE_TITLE = "TiTle V1.0"
-LOGIN_URL = "/report/register/"
+LOGIN_URL = "/report/login/"
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+MEDIA_URL = "/media/"
+
+NUMBER_OF_PER_PAGE = 5

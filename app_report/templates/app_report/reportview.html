@@ -59,27 +59,6 @@
                                         {% endfor %}
                                 </div>
                             </div>
-
-                            <!-- Button -->
-                                <div class="form-group">
-                                    <form id="{{ each.id }}" role="form" class="com" method="post" style="display: none">
-                                        <label>留言</label>
-                                        <textarea id="textarea{{ each.id }}" class="form-control" rows="2" name = "comment"></textarea>
-                                        <br>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary">提交</button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div class="text-center">
-                                    <p>
-                                        <button id="{{ each.id }}" type="button" class="btn btn-danger btn-circle btn-lg zan"><i class="fa fa-thumbs-o-up"></i>
-                                        </button>
-                                        <button id="{{ each.id }}" type="button" class="btn btn-info btn-circle btn-lg com"><i class="fa fa-comment-o"></i>
-                                        </button>
-                                    </p>
-                                </div>
                             </div>
                         <!-- /.panel-body -->
                     </div>
@@ -117,66 +96,4 @@
             <p>没有文章</p >
             {% endif %}
 </div>
-{% endblock %}
-{% block custom_js %}
-<script>
-    $.ajaxSetup({
-        data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-    });
-    $(document).ready(function(){
-        $("form.com").hide();
-        $("form.com").submit(function(){
-            form_data = {};
-            form_data.report_id = this.id;
-            form_data.comment = $("#textarea" + this.id).val();
-            $.ajax({
-                cache:false,
-                type:"POST",
-                url:"/report/comment/",
-                data:form_data,
-                async:false,
-                success:function(data){
-                    if(data.status == "1"){
-                        alert("评论成功");
-                        location.reload();
-                    }
-                }
-            });
-            return false;
-        });
-
-        //
-        $("button.zan").click(function(){
-            form_data = {};
-            form_data.report_id = this.id;
-            $.ajax({
-                cache:false,
-                type:"POST",
-                url:"/report/like/",
-                data:form_data,
-                async:false,
-                success:function(data){
-                    if(data.status == "1"){
-                        alert("赞+1");
-                        a = parseInt($("#zaned").text()) + 1;
-                        $("#zaned").text(a.toString());
-                    }
-                    else{
-                        alert("你已经赞过啦");
-                    }
-                }
-            });
-        });
-        //
-        $("button.com").click(function(){
-            r_id = this.id;
-            if($("form#" + r_id).is(":visible")){
-                $("form#" + r_id).hide();
-            }
-            else{
-                $("form#" + r_id).show();
-            }
-        });
-    });
-</script>
 {% endblock %}

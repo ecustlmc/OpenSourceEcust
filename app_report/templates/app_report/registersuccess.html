@@ -15,13 +15,10 @@
     <link href="{% static "app_report/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="{% static "app_report/vendor/metisMenu/metisMenu.min.css" %}" rel="stylesheet">
+    <link href="{% static "app_report/vendor/metisMenu/metisMenu.min.css"%}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static "app_report/dist/css/sb-admin-2.css" %}" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="{% static "app_report/vendor/morrisjs/morris.css"%}" rel="stylesheet">
+    <link href="{% static "app_report/dist/css/sb-admin-2.css"%}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{% static "app_report/vendor/font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">
@@ -37,35 +34,35 @@
 
 <body>
 
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        {% include "app_report/topbar.html" %}
-
-        {% block page %}
-        {% endblock %}
-        <!-- /#page-wrapper -->
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+            <div class="login-panel panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h3 class="panel-title">注册成功,点击跳转</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="text-center">
+                        <a href="/report/index/" type="button" class="m-auto btn btn-success btn-circle btn-xl"><i class="fa fa-check"></i>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="{% static "app_report/vendor/jquery/jquery.min.js" %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{% static "app_report/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "app_report/vendor/bootstrap/js/bootstrap.min.js"%}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{% static "app_report/vendor/metisMenu/metisMenu.min.js" %}"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="{% static "app_report/vendor/raphael/raphael.min.js"%}"></script>
-    <script src="{% static "app_report/vendor/morrisjs/morris.min.js"%}"></script>
-    <script src="{% static "app_report/data/morris-data.js"%}"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="{% static "app_report/dist/js/sb-admin-2.js"%}"></script>
-    {% block custom_js %}{% endblock %}
 
 </body>
 
