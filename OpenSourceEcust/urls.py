@@ -14,10 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import redirect
+def homePage(req):
+    return redirect('/report/index/')
+
 urlpatterns = [
     path('report/',include('app_report.urls')),
     path('admin/', admin.site.urls),
+    re_path(r'^',homePage),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
